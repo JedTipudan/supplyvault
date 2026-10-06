@@ -1,11 +1,11 @@
 {
   "expo": {
     "name": "SupplyVault",
-    "slug": "stockwise-ai",
+    "slug": "supplyvault",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "scheme": "stockwiseai",
+    "scheme": "supplyvault",
     "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true
