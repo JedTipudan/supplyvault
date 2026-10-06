@@ -13,7 +13,7 @@ import {
   Inter_800ExtraBold,
 } from '@expo-google-fonts/inter';
 import { getDb, seedIfEmpty } from '../src/database/client';
-import { loadSession } from '../src/services/auth';
+import { loadSession, devSignIn } from '../src/services/auth';
 import { useAuthStore, useThemeStore } from '../src/store/useStores';
 import { useTheme } from '../src/hooks/useTheme';
 import { Splash } from '../src/components/Splash';
@@ -37,8 +37,14 @@ function Guard({ children }: { children: React.ReactNode }) {
       try {
         await getDb();
         await seedIfEmpty();
+        // Auto-sign-in so the database is always accessible offline
         const s = await loadSession();
-        if (s) useAuthStore.getState().hydrate({ token: s.token, userId: s.userId, userName: s.name, role: s.role });
+        if (s) {
+          useAuthStore.getState().hydrate({ token: s.token, userId: s.userId, userName: s.name, role: s.role });
+        } else {
+          const auto = await devSignIn('staff@supplyvault.dev');
+          useAuthStore.getState().hydrate({ token: auto.token, userId: auto.userId, userName: auto.name, role: auto.role });
+        }
       } finally {
         setReady(true);
       }
