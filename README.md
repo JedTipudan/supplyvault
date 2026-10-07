@@ -75,8 +75,3 @@ Scan the QR code with Expo Go.
 | Zustand | State management |
 | Lucide Icons | UI icons |
 
----
-
-## Developer
-
-**Jed Tipudan**

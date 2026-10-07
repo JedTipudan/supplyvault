@@ -18,7 +18,8 @@
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
       "backgroundColor": "#F8FAFC",
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.anonymous.supplyvault"
     },
     "web": {
       "favicon": "./assets/favicon.png"
